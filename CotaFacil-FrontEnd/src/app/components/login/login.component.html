@@ -1,0 +1,150 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h1>📊 ContaFácil</h1>
+      <p>{{ isRegistering ? 'Crear nueva cuenta' : 'Bienvenido de vuelta' }}</p>
+    </div>
+    
+    <!-- Formulario de Login -->
+    <form class="login-form" (ngSubmit)="onLogin()" *ngIf="!isRegistering">
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input 
+          type="text" 
+          id="usuario" 
+          name="usuario"
+          [(ngModel)]="usuario"
+          placeholder="Ingresa tu usuario"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Ingresa tu contraseña"
+          required>
+      </div>
+      
+      <button type="submit" class="login-btn" [disabled]="isLoading">
+        <span *ngIf="!isLoading">Ingresar</span>
+        <span *ngIf="isLoading">
+          <i class="fas fa-spinner fa-spin"></i>
+          Validando...
+        </span>
+      </button>
+      
+      <div class="form-footer">
+        <p>¿No tienes cuenta? 
+          <a href="#" (click)="toggleForm($event)" class="toggle-link">Crear nuevo usuario</a>
+        </p>
+      </div>
+    </form>
+    
+    <!-- Formulario de Registro -->
+    <form class="register-form" (ngSubmit)="onRegister()" *ngIf="isRegistering">
+      <div class="form-group">
+        <label for="regUsername">Usuario</label>
+        <input 
+          type="text" 
+          id="regUsername" 
+          name="regUsername"
+          [(ngModel)]="newUser.username"
+          placeholder="Ingresa tu usuario"
+          required
+          [class.error]="usernameError">
+        <div class="error-message" *ngIf="usernameError">{{ usernameError }}</div>
+      </div>
+      
+      <div class="form-group">
+        <label for="regEmail">Email</label>
+        <input 
+          type="email" 
+          id="regEmail" 
+          name="regEmail"
+          [(ngModel)]="newUser.email"
+          placeholder="Ingresa tu email"
+          required
+          [class.error]="emailError">
+        <div class="error-message" *ngIf="emailError">{{ emailError }}</div>
+      </div>
+      
+      <div class="form-group">
+        <label for="regPassword">Contraseña</label>
+        <input 
+          type="password" 
+          id="regPassword" 
+          name="regPassword"
+          [(ngModel)]="newUser.password"
+          placeholder="Ingresa tu contraseña"
+          required
+          [class.error]="passwordError">
+        <div class="error-message" *ngIf="passwordError">{{ passwordError }}</div>
+      </div>
+      
+      <div class="form-group">
+        <label for="regNombre">Nombre</label>
+        <input 
+          type="text" 
+          id="regNombre" 
+          name="regNombre"
+          [(ngModel)]="newUser.nombre"
+          placeholder="Ingresa tu nombre"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label for="regApellido">Apellido</label>
+        <input 
+          type="text" 
+          id="regApellido" 
+          name="regApellido"
+          [(ngModel)]="newUser.apellido"
+          placeholder="Ingresa tu apellido"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label for="regDireccion">Dirección</label>
+        <input 
+          type="text" 
+          id="regDireccion" 
+          name="regDireccion"
+          [(ngModel)]="newUser.direccion"
+          placeholder="Ingresa tu dirección"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label for="regGenero">Género</label>
+        <select 
+          id="regGenero" 
+          name="regGenero"
+          [(ngModel)]="newUser.genero"
+          required>
+          <option value="">Selecciona tu género</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="register-btn" [disabled]="isRegisteringLoading || !canRegister">
+        <span *ngIf="!isRegisteringLoading">Crear cuenta</span>
+        <span *ngIf="isRegisteringLoading">
+          <i class="fas fa-spinner fa-spin"></i>
+          Registrando...
+        </span>
+      </button>
+      
+      <div class="form-footer">
+        <p>¿Ya tienes cuenta? 
+          <a href="#" (click)="toggleForm($event)" class="toggle-link">Inicia sesión</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

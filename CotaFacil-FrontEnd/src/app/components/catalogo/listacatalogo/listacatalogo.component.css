@@ -1,0 +1,549 @@
+/* Variables para el modo oscuro */
+:root {
+  --catalog-bg-color: transparent;
+  --catalog-title-color: #1e88e5;
+  --catalog-container-bg: rgba(255, 255, 255, 0.95);
+  --catalog-table-bg: white;
+  --catalog-header-bg: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --catalog-header-text: #495057;
+  --catalog-row-bg: #fff;
+  --catalog-row-even-bg: #fafbfc;
+  --catalog-row-hover-bg: #f8f9fa;
+  --catalog-cell-text: #212529;
+  --catalog-border-color: #e2e8f0;
+  --catalog-rate-bg: rgba(76, 175, 80, 0.08);
+  --catalog-rate-border: rgba(76, 175, 80, 0.2);
+}
+
+/* Modo oscuro */
+.dark-theme {
+  --catalog-bg-color: transparent;
+  --catalog-title-color: #bb86fc;
+  --catalog-container-bg: rgba(45, 45, 45, 0.95);
+  --catalog-table-bg: #2d2d2d;
+  --catalog-header-bg: linear-gradient(135deg, #404040 0%, #2d2d2d 100%);
+  --catalog-header-text: #ffffff;
+  --catalog-row-bg: #2d2d2d;
+  --catalog-row-even-bg: #404040;
+  --catalog-row-hover-bg: #555555;
+  --catalog-cell-text: #ffffff;
+  --catalog-border-color: #555555;
+  --catalog-rate-bg: rgba(76, 175, 80, 0.2);
+  --catalog-rate-border: rgba(76, 175, 80, 0.4);
+}
+
+/* Container Styles con tipografía de creaditabono */
+.container {
+  background: var(--catalog-bg-color);
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif;
+  font-weight: 600;
+}
+
+/* Title Styles con estilo de creaditabono */
+h1 {
+  text-align: center;
+  color: var(--catalog-title-color);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 20px 0 40px 0;
+  letter-spacing: 0.5px;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif;
+}
+
+/* Table Container con estilo minimalista */
+.table-container {
+  background: var(--catalog-container-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--catalog-border-color);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Main Table Styles */
+.mat-mdc-table {
+  width: 100%;
+  background: var(--catalog-table-bg);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Header Styles con tipografía de creaditabono */
+.mat-mdc-header-row {
+  background: var(--catalog-header-bg);
+  height: 56px;
+  border-bottom: 2px solid var(--catalog-border-color);
+}
+
+.mat-mdc-header-cell {
+  border: none;
+  padding: 16px 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--catalog-header-text);
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif;
+}
+
+.mat-mdc-header-cell:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 1px;
+  background: var(--catalog-border-color);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.header-content mat-icon {
+  font-size: 1.125rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--catalog-title-color);
+}
+
+/* Row Styles con estilo de listarbono */
+.mat-mdc-row {
+  height: 60px;
+  transition: all 0.2s ease;
+  position: relative;
+  background: var(--catalog-row-bg);
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: var(--catalog-row-even-bg);
+}
+
+.mat-mdc-row:hover {
+  background: var(--catalog-row-hover-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.mat-mdc-row::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--catalog-border-color) 20%, var(--catalog-border-color) 80%, transparent 100%);
+}
+
+.mat-mdc-row:last-child::after {
+  display: none;
+}
+
+/* Cell Styles con tipografía de creaditabono */
+.mat-mdc-cell {
+  border: none;
+  padding: 16px 12px;
+  font-size: 0.875rem;
+  color: var(--catalog-cell-text);
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.4;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif;
+  font-weight: 600;
+}
+
+.mat-mdc-cell:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 1px;
+  background: var(--catalog-border-color);
+}
+
+.cell-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Currency Column Styles - más sutiles */
+.currency-icon {
+  color: var(--catalog-title-color);
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.currency-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--catalog-title-color);
+  font-family: 'Segoe UI', 'Arial Black', sans-serif;
+}
+
+/* Exchange Rate Column Styles - más minimalista */
+.exchange-rate {
+  justify-content: center;
+}
+
+.rate-icon {
+  color: #4CAF50;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.rate-value {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2e7d32;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif;
+  background: var(--catalog-rate-bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--catalog-rate-border);
+}
+
+/* Modo oscuro - ajustar color del valor de la tasa */
+.dark-theme .rate-value {
+  color: #4CAF50;
+}
+
+/* Responsive Design con tipografía consistente */
+@media (max-width: 1024px) {
+  .table-container {
+    max-width: 95%;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .mat-mdc-cell, .mat-mdc-header-cell {
+    padding: 12px 8px;
+    font-size: 0.8rem;
+  }
+
+  .currency-name, .rate-value {
+    font-size: 0.85rem;
+  }
+
+  .cell-content {
+    gap: 6px;
+  }
+
+  .header-content mat-icon {
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin: 15px 0 25px 0;
+  }
+
+  .table-container {
+    max-width: 100%;
+  }
+
+  .mat-mdc-cell, .mat-mdc-header-cell {
+    padding: 10px 6px;
+    font-size: 0.75rem;
+  }
+
+  .currency-name, .rate-value {
+    font-size: 0.8rem;
+  }
+
+  .cell-content {
+    gap: 4px;
+  }
+
+  .header-content mat-icon {
+    font-size: 0.9rem;
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin: 10px 0 20px 0;
+  }
+
+  .table-container {
+    border-radius: 6px;
+  }
+
+  .mat-mdc-header-cell, .mat-mdc-cell {
+    padding: 8px 4px;
+    font-size: 0.7rem;
+  }
+
+  .currency-name, .rate-value {
+    font-size: 0.75rem;
+  }
+
+  .rate-value {
+    padding: 2px 4px;
+  }
+
+  .cell-content {
+    gap: 2px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+  }
+
+  .header-content mat-icon {
+    font-size: 0.8rem;
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}
+
+/* Animaciones */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hover effects para botones si existen */
+.action-button {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para la columna de acciones */
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+.edit-button,
+.delete-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.edit-button {
+  background: linear-gradient(135deg, #ff9800, #f57c00) !important;
+  color: white !important;
+}
+
+.edit-button:hover {
+  background: linear-gradient(135deg, #f57c00, #ef6c00) !important;
+  box-shadow: 0 4px 8px rgba(255, 152, 0, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+.delete-button {
+  background: linear-gradient(135deg, #f44336, #d32f2f) !important;
+  color: white !important;
+}
+
+.delete-button:hover {
+  background: linear-gradient(135deg, #d32f2f, #c62828) !important;
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+.edit-button mat-icon,
+.delete-button mat-icon {
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Estilos para tema oscuro - botones de acciones */
+.dark-theme .edit-button {
+  background: linear-gradient(135deg, #ffb74d, #ff9800) !important;
+}
+
+.dark-theme .edit-button:hover {
+  background: linear-gradient(135deg, #ff9800, #f57c00) !important;
+}
+
+.dark-theme .delete-button {
+  background: linear-gradient(135deg, #ef5350, #f44336) !important;
+}
+
+.dark-theme .delete-button:hover {
+  background: linear-gradient(135deg, #f44336, #d32f2f) !important;
+}
+
+/* Responsive para botones de acciones */
+@media (max-width: 768px) {
+  .actions-cell {
+    gap: 6px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+  
+  .edit-button mat-icon,
+  .delete-button mat-icon {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+/* Estilos para el botón Añadir Moneda */
+.add-button-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.add-currency-btn {
+  background: linear-gradient(135deg, #1e88e5, #1565c0) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-shadow: none !important;
+}
+
+.add-currency-btn:hover {
+  background: linear-gradient(135deg, #1565c0, #0d47a1) !important;
+  box-shadow: 0 6px 16px rgba(30, 136, 229, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+.add-currency-btn:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3) !important;
+}
+
+.add-currency-btn mat-icon {
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Estilos para tema oscuro */
+.dark-theme .add-currency-btn {
+  background: linear-gradient(135deg, #bb86fc, #9c64e0) !important;
+  color: #2c2c2c !important;
+  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.3) !important;
+  text-shadow: none !important;
+}
+
+.dark-theme .add-currency-btn:hover {
+  background: linear-gradient(135deg, #9c64e0, #7c4dff) !important;
+  box-shadow: 0 6px 16px rgba(187, 134, 252, 0.4) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .add-button-container {
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+  
+  .add-currency-btn {
+    font-size: 0.9rem !important;
+    padding: 10px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-button-container {
+    justify-content: center;
+    padding: 0 10px;
+  }
+}

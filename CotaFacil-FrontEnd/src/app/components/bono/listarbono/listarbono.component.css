@@ -1,0 +1,471 @@
+/* Reglas específicas para el tema oscuro */
+:host-context(.dark-theme) .mat-mdc-table {
+  background: var(--app-table-row-bg) !important;
+  color: var(--app-text-color) !important;
+}
+
+:host-context(.dark-theme) .mat-mdc-header-row {
+  background: var(--app-table-header-bg) !important;
+  color: var(--app-text-color) !important;
+}
+
+:host-context(.dark-theme) .mat-mdc-header-cell {
+  background: var(--app-table-header-bg) !important;
+  color: var(--app-text-color) !important;
+  border-color: var(--app-border-color) !important;
+}
+
+:host-context(.dark-theme) .mat-mdc-row {
+  background: var(--app-table-row-bg) !important;
+  color: var(--app-text-color) !important;
+}
+
+:host-context(.dark-theme) .mat-mdc-cell {
+  background: var(--app-table-row-bg) !important;
+  color: var(--app-text-color) !important;
+  border-color: var(--app-border-color) !important;
+}
+
+:host-context(.dark-theme) .mat-mdc-row:hover {
+  background: var(--app-table-row-hover) !important;
+}
+
+:host-context(.dark-theme) button {
+  background: var(--app-surface-color) !important;
+  color: var(--app-text-color) !important;
+  border-color: var(--app-border-color) !important;
+}
+
+:host-context(.dark-theme) .view-button {
+  color: var(--app-button-bg) !important;
+}
+
+:host-context(.dark-theme) .table-container {
+  background: var(--app-surface-color) !important;
+  border-color: var(--app-border-color) !important;
+}
+
+/* Contenedor principal con tipografía de creaditabono */
+.container {
+  background: var(--app-bg-gradient);
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif;
+  font-weight: 600;
+  color: var(--app-text-color);
+}
+
+/* Título con estilo de creaditabono */
+h1 {
+  color: var(--app-button-bg) !important;
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 20px 0 40px 0;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor de tabla - más minimalista */
+.table-container {
+  background: var(--app-surface-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px var(--app-shadow);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid var(--app-border-color);
+  backdrop-filter: blur(10px);
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Tabla principal */
+.mat-mdc-table {
+  background: transparent !important;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Header de la tabla */
+.mat-mdc-header-row {
+  background: var(--app-table-header-bg) !important;
+  color: var(--app-text-color) !important;
+  height: 56px !important;
+  border-bottom: 2px solid var(--app-border-color) !important;
+}
+
+.mat-mdc-header-cell {
+  color: var(--app-text-color) !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  padding: 16px 12px !important;
+  text-align: center !important;
+  border-right: 1px solid var(--app-border-color) !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif !important;
+}
+
+.mat-mdc-header-cell:last-child {
+  border-right: none !important;
+}
+
+/* Filas de datos */
+.mat-mdc-row {
+  background: var(--app-table-row-bg) !important;
+  height: 60px !important;
+  border-bottom: 1px solid var(--app-border-color) !important;
+  transition: all 0.2s ease;
+  color: var(--app-text-color) !important;
+}
+
+.mat-mdc-row:hover {
+  background: var(--app-table-row-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+.mat-mdc-row:nth-child(even) {
+  background: var(--app-table-row-bg) !important;
+}
+
+.mat-mdc-row:nth-child(even):hover {
+  background: var(--app-table-row-hover) !important;
+}
+
+/* Celdas de datos con tipografía de creaditabono */
+.mat-mdc-cell {
+  color: var(--app-text-color) !important;
+  font-size: 0.875rem !important;
+  padding: 16px 12px !important;
+  text-align: center !important;
+  border-right: 1px solid var(--app-border-color) !important;
+  vertical-align: middle !important;
+  line-height: 1.4;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.mat-mdc-cell:last-child {
+  border-right: none !important;
+}
+
+/* Contenedores de botones */
+.actions-cell,
+.button-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px !important;
+}
+
+/* Botones base - estilo minimalista */
+button {
+  background: var(--app-surface-color);
+  border: 1px solid var(--app-border-color);
+  border-radius: 4px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  box-shadow: none;
+  font-family: 'Segoe UI', 'Arial Black', sans-serif !important;
+  font-weight: 500 !important;
+  color: var(--app-text-color);
+}
+
+button:hover {
+  transform: none;
+  box-shadow: 0 1px 3px var(--app-shadow);
+}
+
+/* Botones específicos - colores más sutiles */
+.view-button {
+  color: var(--app-button-bg);
+  border-color: var(--app-border-color);
+}
+
+.view-button:hover {
+  background: #f3f9ff;
+  border-color: #2196F3;
+}
+
+.edit-button {
+  color: #4CAF50;
+  border-color: #e8f5e8;
+}
+
+.edit-button:hover {
+  background: #f1f8e9;
+  border-color: #4CAF50;
+}
+
+.delete-button {
+  color: #f44336;
+  border-color: #ffebee;
+}
+
+.delete-button:hover {
+  background: #fef7f7;
+  border-color: #f44336;
+}
+
+.cash-flow-button,
+.results-button {
+  color: #FF9800;
+  border-color: #fff3e0;
+}
+
+.cash-flow-button:hover,
+.results-button:hover {
+  background: #fffaf0;
+  border-color: #FF9800;
+}
+
+/* Iconos - más simples */
+mat-icon {
+  color: inherit !important;
+  font-size: 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+button:hover mat-icon {
+  transform: scale(1.1);
+}
+
+/* Responsive: Tablets */
+@media (max-width: 1024px) {
+  .table-container {
+    max-width: 95%;
+  }
+
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+    padding: 12px 8px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Responsive: Tablets y móviles medianos */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 12px;
+    font-family: 'Segoe UI', 'Arial Black', sans-serif;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin: 12px 0 24px 0;
+    font-weight: 800;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .mat-mdc-table {
+    min-width: 700px;
+  }
+
+  .mat-mdc-header-row {
+    height: 48px !important;
+  }
+
+  .mat-mdc-row {
+    height: 52px !important;
+  }
+
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+    padding: 8px 6px !important;
+    font-size: 0.8rem !important;
+  }
+
+  button {
+    min-width: 32px;
+    height: 32px;
+    padding: 6px;
+  }
+
+  mat-icon {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .actions-cell,
+  .button-cell {
+    gap: 6px;
+  }
+}
+
+/* Responsive: Móviles pequeños */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 8px;
+    font-family: 'Segoe UI', 'Arial Black', sans-serif;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 8px 0 16px 0;
+    font-weight: 800;
+  }
+
+  .table-container {
+    border-radius: 8px;
+  }
+
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+    padding: 6px 4px !important;
+    font-size: 0.75rem !important;
+  }
+
+  button {
+    min-width: 28px;
+    height: 28px;
+    padding: 4px;
+  }
+
+  mat-icon {
+    font-size: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+/* Animación de entrada */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* Estilos para la columna de emisión */
+.emission-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.emit-button {
+  background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3) !important;
+}
+
+.emit-button:hover {
+  background: linear-gradient(135deg, #45a049, #3d8b40) !important;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+.emit-button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3) !important;
+}
+
+.emitted-status {
+  display: flex;
+  align-items: center;
+  color: #4CAF50;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Estilos para tema oscuro - columna de emisión */
+:host-context(.dark-theme) .emit-button {
+  background: linear-gradient(135deg, #66BB6A, #4CAF50) !important;
+  color: #ffffff !important;
+}
+
+:host-context(.dark-theme) .emit-button:hover {
+  background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+}
+
+:host-context(.dark-theme) .emitted-status {
+  color: #66BB6A !important;
+}
+
+/* Estilos para botones deshabilitados */
+.disabled-button {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  background: #cccccc !important;
+  color: #666666 !important;
+}
+
+.disabled-button:hover {
+  background: #cccccc !important;
+  color: #666666 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Estilos específicos para botones deshabilitados en tema oscuro */
+:host-context(.dark-theme) .disabled-button {
+  background: #444444 !important;
+  color: #888888 !important;
+}
+
+:host-context(.dark-theme) .disabled-button:hover {
+  background: #444444 !important;
+  color: #888888 !important;
+}
+
+/* Estilos para botones de flujo de caja y resultados deshabilitados */
+.cash-flow-button.disabled-button,
+.results-button.disabled-button {
+  background: linear-gradient(135deg, #cccccc, #bbbbbb) !important;
+}
+
+:host-context(.dark-theme) .cash-flow-button.disabled-button,
+:host-context(.dark-theme) .results-button.disabled-button {
+  background: linear-gradient(135deg, #444444, #333333) !important;
+}

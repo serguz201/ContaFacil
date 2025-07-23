@@ -1,0 +1,24 @@
+<div class="home-container">
+  <div class="home-content">
+    <!-- Sección izquierda con texto -->
+    <div class="home-left">
+      <div class="welcome-section">
+        <h1 class="main-title">BIENVENIDO A</h1>
+        <h1 class="brand-title">CONTAFÁCIL</h1>
+        <p class="welcome-message">¡Hola, {{ userName }}! Disfruta de la gestión de tus bonos con ContaFácil.</p>
+      </div>
+    </div>
+    
+    <!-- Sección derecha con imagen -->
+    <div class="home-right">
+      <div class="image-container">
+        <img 
+          src="home.jpg" 
+          alt="Imagen de inicio" 
+          class="home-image"
+          (error)="onImageError($event)"
+          (load)="onImageLoad($event)">
+      </div>
+    </div>
+  </div>
+</div>

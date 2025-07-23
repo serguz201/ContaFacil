@@ -1,0 +1,67 @@
+.manual-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  background: var(--app-bg-gradient);
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  color: var(--app-text-color);
+}
+
+.manual-image-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  margin: 0;
+}
+
+.manual-image {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--app-shadow);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .manual-container {
+    padding: 16px;
+  }
+  
+  .manual-image-container {
+    padding: 16px;
+  }
+  
+  .manual-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .manual-container {
+    padding: 12px;
+  }
+  
+  .manual-image-container {
+    padding: 12px;
+  }
+  
+  .manual-image {
+    max-width: 100%;
+  }
+}
+
+/* Reglas específicas para el tema oscuro */
+:host-context(.dark-theme) .manual-container {
+  background: var(--app-bg-gradient) !important;
+  color: var(--app-text-color) !important;
+}

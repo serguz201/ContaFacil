@@ -1,0 +1,65 @@
+<header #header class="main-header" [ngClass]="{'dark-theme-header': isDarkMode, 'light-theme-header': !isDarkMode}" [attr.data-theme]="isDarkMode ? 'dark' : 'light'" *ngIf="showHeader">
+  <nav class="nav-container">
+    <!-- Botón de inicio en el lado izquierdo -->
+    <button mat-raised-button class="home-button" routerLink="/inicio" title="Inicio">
+      <mat-icon>home</mat-icon>
+    </button>
+    
+    <!-- Contenedor principal de navegación -->
+    <div class="main-nav">
+      <button mat-raised-button class="nav-button create-btn" routerLink="/bonos/nuevo">
+        <mat-icon>add_circle</mat-icon>
+        <span>Crear Bono</span>
+      </button>
+      
+      <button mat-raised-button class="nav-button list-btn" routerLink="/bonos">
+        <mat-icon>list</mat-icon>
+        <span>Ver Bonos</span>
+      </button>
+
+      <button mat-raised-button class="nav-button faq-btn" routerLink="/faq" title="Preguntas Frecuentes">
+        <span class="faq-emoji">❓</span>
+        <span>FAQ</span>
+      </button>
+
+    </div>
+
+    <!-- Sección de usuario -->
+    <div class="user-section" *ngIf="currentUser">
+      <div class="user-info">
+        <mat-icon class="user-icon">account_circle</mat-icon>
+        <span class="username">{{ currentUser.username }}</span>
+      </div>
+      
+      <!-- Icono de Configuración minimalista -->
+      <button mat-icon-button class="config-icon-btn" [matMenuTriggerFor]="configMenu" title="Configuración">
+        <mat-icon>settings</mat-icon>
+      </button>
+
+      <!-- Menú desplegable de configuración -->
+      <mat-menu #configMenu="matMenu" class="config-menu">
+        <button mat-menu-item routerLink="/catalogo-monedas" class="menu-item">
+          <mat-icon>monetization_on</mat-icon>
+          <span>Monedas</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="toggleTheme()" class="menu-item">
+          <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+          <span>{{ isDarkMode ? 'Modo Claro' : 'Modo Oscuro' }}</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()" class="menu-item logout-menu-item">
+          <mat-icon>logout</mat-icon>
+          <span>Cerrar Sesión</span>
+        </button>
+      </mat-menu>
+    </div>
+  </nav>
+</header>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Chatbot flotante disponible en todas las páginas excepto login -->
+<app-chatbot *ngIf="showHeader"></app-chatbot>

@@ -1,0 +1,772 @@
+/* Variables CSS para temas */
+:root {
+  /* Tema Claro (por defecto) - Restaurando el azul oscuro original */
+  --primary-color: #1e88e5;
+  --primary-dark: #1565c0;
+  --primary-light: #42a5f5;
+  --background-gradient: linear-gradient(135deg, #1565c0 0%, #1976d2 50%, #1e88e5 100%);
+  --surface-color: #ffffff;
+  --text-color: #333333;
+  --text-light: #666666;
+  --border-color: rgba(255, 255, 255, 0.2);
+  --shadow-color: rgba(30, 136, 229, 0.2);
+  
+  /* Colores específicos para header */
+  --header-bg: #ffffff;
+  --header-border: #e0e0e0;
+  --header-shadow: rgba(0, 0, 0, 0.1);
+  
+  /* Colores específicos para elementos */
+  --header-text-color: #333333;
+  --header-border-color: rgba(0, 0, 0, 0.1);
+  --menu-background: #ffffff;
+  --menu-text-color: #333333;
+  --menu-hover-bg: rgba(156, 39, 176, 0.05);
+  --menu-icon-color: #9c27b0;
+  --user-section-bg: rgba(255, 255, 255, 0.1);
+  --user-section-border: rgba(255, 255, 255, 0.2);
+  --config-btn-hover-bg: rgba(255, 255, 255, 0.1);
+  --glass-overlay: rgba(255, 255, 255, 0.1);
+  --secondary-color: #4caf50;
+  --secondary-dark: #45a049;
+  --warning-color: #ff9800;
+  --warning-dark: #f57c00;
+  --faq-color: #1e88e5;
+  --faq-dark: #1976d2;
+}
+
+/* Tema Oscuro */
+.dark-theme {
+  --primary-color: #bb86fc;
+  --primary-dark: #7b1fa2;
+  --primary-light: #d1c4e9;
+  --background-gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2d2d2d 100%);
+  --surface-color: #2d2d2d;
+  --text-color: #ffffff;
+  --text-light: #b3b3b3;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  
+  /* Colores específicos para header en modo oscuro */
+  --header-bg: #000000;
+  --header-border: #333333;
+  --header-shadow: rgba(0, 0, 0, 0.8);
+  
+  /* Colores específicos para elementos en modo oscuro */
+  --header-text-color: #ffffff;
+  --header-border-color: rgba(255, 255, 255, 0.1);
+  --menu-background: #2d2d2d;
+  --menu-text-color: #ffffff;
+  --menu-hover-bg: rgba(187, 134, 252, 0.15);
+  --menu-icon-color: #bb86fc;
+  --user-section-bg: rgba(255, 255, 255, 0.05);
+  --user-section-border: rgba(255, 255, 255, 0.1);
+  --config-btn-hover-bg: rgba(255, 255, 255, 0.08);
+  --glass-overlay: rgba(255, 255, 255, 0.02);
+  --secondary-color: #4caf50;
+  --secondary-dark: #45a049;
+  --warning-color: #ff9800;
+  --warning-dark: #f57c00;
+  --faq-color: #bb86fc;
+  --faq-dark: #7b1fa2;
+}
+
+/* Contenedor principal que envuelve todo el contenido */
+.main-content {
+  min-height: 100vh;
+  background: var(--app-bg-gradient);
+  color: var(--app-text-color);
+  transition: all 0.3s ease;
+}
+
+/* Encabezado principal */
+.main-header {
+  background: var(--header-bg) !important;
+  border-bottom: 3px solid var(--header-border) !important;
+  box-shadow: 0 2px 12px var(--header-shadow) !important;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Clases específicas para tema del header */
+.light-theme-header {
+  background: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark-theme-header {
+  background: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Estilos por defecto para modo claro */
+:host:not(.dark-theme) .main-header,
+:host .main-header {
+  background: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Estilos específicos para modo oscuro */
+:host(.dark-theme) .main-header {
+  background: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Reglas adicionales para asegurar que el tema se aplique correctamente */
+:host-context(.dark-theme) .main-header {
+  background: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+:host-context(:not(.dark-theme)) .main-header {
+  background: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Fallback con mayor especificidad */
+.main-header[data-theme="light"] {
+  background: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.main-header[data-theme="dark"] {
+  background: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Reglas adicionales para body context */
+body.dark-theme .main-header,
+.dark-theme .main-header {
+  background: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.light-theme .main-header,
+body:not(.dark-theme) .main-header,
+.light-theme .main-header,
+:not(.dark-theme) .main-header {
+  background: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Estilos ultra específicos para asegurar que el header funcione correctamente */
+app-root .main-header.light-theme-header,
+.main-header.light-theme-header,
+header.light-theme-header {
+  background-color: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+app-root .main-header.dark-theme-header,
+.main-header.dark-theme-header,
+header.dark-theme-header {
+  background-color: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Estilos para el contexto del body */
+body.dark-theme app-root .main-header,
+body.dark-theme .main-header,
+.dark-theme app-root .main-header,
+.dark-theme .main-header {
+  background-color: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.light-theme app-root .main-header,
+body.light-theme .main-header,
+body:not(.dark-theme) app-root .main-header,
+body:not(.dark-theme) .main-header {
+  background-color: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Estilos por atributo data-theme */
+.main-header[data-theme="dark"] {
+  background-color: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+.main-header[data-theme="light"] {
+  background-color: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Contenedor de navegación */
+.nav-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Botón de inicio (casa) */
+.home-button {
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  border-radius: 50% !important;
+  background-color: var(--surface-color) !important;
+  color: var(--primary-color) !important;
+  border: 2px solid var(--surface-color) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+  flex-shrink: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+
+.home-button:hover {
+  background-color: var(--surface-color) !important;
+  color: var(--primary-dark) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 4px 16px var(--shadow-color) !important;
+}
+
+.home-button mat-icon {
+  font-size: 1.4rem !important;
+  width: 1.4rem !important;
+  height: 1.4rem !important;
+  color: inherit !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Contenedor principal de navegación */
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 0 24px;
+}
+
+/* Botones de navegación */
+.nav-button {
+  height: 48px !important;
+  border-radius: 12px !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.3px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease !important;
+  text-transform: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  min-width: 160px !important;
+  flex: 1 !important;
+  max-width: 200px !important;
+}
+
+/* Botón Crear Bono */
+.create-btn {
+  background-color: var(--surface-color) !important;
+  color: var(--primary-color) !important;
+  border: 2px solid var(--surface-color) !important;
+}
+
+.create-btn:hover {
+  background-color: var(--surface-color) !important;
+  color: var(--primary-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px var(--shadow-color) !important;
+}
+
+/* Botón Ver Bonos */
+.list-btn {
+  background-color: var(--logout-btn-bg) !important;
+  color: var(--header-text-color) !important;
+  border: 2px solid var(--header-border-color) !important;
+  backdrop-filter: blur(10px);
+}
+
+.list-btn:hover {
+  background-color: var(--config-btn-hover-bg) !important;
+  border-color: var(--border-color) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px var(--shadow-color) !important;
+}
+
+/* Botón Catálogo de Monedas */
+.catalog-btn {
+  background-color: var(--secondary-color) !important;
+  color: var(--header-text-color) !important;
+  border: 2px solid var(--secondary-color) !important;
+}
+
+.catalog-btn:hover {
+  background-color: var(--secondary-dark) !important;
+  border-color: var(--secondary-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3) !important;
+}
+
+/* Botón FAQ */
+.faq-btn {
+  background-color: var(--faq-color) !important;
+  color: var(--header-text-color) !important;
+  border: 2px solid var(--faq-color) !important;
+  position: relative !important;
+}
+
+.faq-btn:hover {
+  background-color: var(--faq-dark) !important;
+  border-color: var(--faq-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px var(--shadow-color) !important;
+}
+
+.faq-emoji {
+  font-size: 1.2rem !important;
+  margin-right: 4px !important;
+  display: inline-block !important;
+  animation: bounce 2s infinite !important;
+}
+
+/* Botón Configuración */
+.config-btn {
+  background-color: var(--menu-icon-color) !important;
+  color: var(--header-text-color) !important;
+  border: 2px solid var(--menu-icon-color) !important;
+  position: relative !important;
+}
+
+.config-btn:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px var(--shadow-color) !important;
+}
+
+.config-btn mat-icon {
+  animation: rotate 3s linear infinite !important;
+}
+
+/* Icono de Configuración Minimalista */
+.config-icon-btn {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  background: transparent !important;
+  color: var(--header-text-color) !important;
+  border: none !important;
+  margin-left: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+}
+
+.config-icon-btn:hover {
+  background: var(--config-btn-hover-bg) !important;
+}
+
+.config-icon-btn mat-icon {
+  font-size: 1.1rem !important;
+  width: 1.1rem !important;
+  height: 1.1rem !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos para el menú desplegable de configuración */
+.config-menu {
+  margin-top: 8px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px var(--shadow-color) !important;
+  background: var(--menu-background) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.config-menu .mat-mdc-menu-panel {
+  min-width: 200px !important;
+  background: var(--menu-background) !important;
+}
+
+.config-menu .menu-item {
+  padding: 12px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  color: var(--menu-text-color) !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.config-menu .menu-item:hover {
+  background-color: var(--menu-hover-bg) !important;
+  color: var(--menu-icon-color) !important;
+}
+
+.config-menu .menu-item mat-icon {
+  font-size: 1.2rem !important;
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  color: var(--menu-icon-color) !important;
+}
+
+.config-menu .menu-item span {
+  flex: 1 !important;
+}
+
+/* Estilo específico para el elemento de logout en el menú */
+.config-menu .logout-menu-item {
+  border-top: 1px solid var(--border-color) !important;
+  margin-top: 4px !important;
+  color: #f44336 !important;
+}
+
+.config-menu .logout-menu-item:hover {
+  background-color: rgba(244, 67, 54, 0.1) !important;
+  color: #f44336 !important;
+}
+
+.config-menu .logout-menu-item mat-icon {
+  color: #f44336 !important;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Botón Manual */
+.manual-btn {
+  background-color: var(--warning-color) !important;
+  color: var(--header-text-color) !important;
+  border: 2px solid var(--warning-color) !important;
+}
+
+.manual-btn:hover {
+  background-color: var(--warning-dark) !important;
+  border-color: var(--warning-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(255, 152, 0, 0.3) !important;
+}
+
+/* Sección de usuario */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--user-section-bg);
+  border: 1px solid var(--user-section-border);
+  border-radius: 25px;
+  padding: 8px 16px;
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--header-text-color);
+}
+
+.user-icon {
+  font-size: 1.5rem !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  color: var(--header-text-color) !important;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  color: var(--header-text-color);
+}
+
+/* Iconos */
+.nav-button mat-icon {
+  font-size: 1.2rem !important;
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+}
+
+/* Estados activos para rutas */
+.nav-button.active {
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 12px 16px;
+  }
+  
+  .nav-container {
+    gap: 12px;
+  }
+  
+  .main-nav {
+    gap: 12px;
+    margin: 0 12px;
+  }
+  
+  .home-button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .home-button mat-icon {
+    font-size: 1.2rem !important;
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+    color: inherit !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+  
+  .nav-button {
+    height: 44px !important;
+    font-size: 0.85rem !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    padding: 8px 12px !important;
+    min-width: 100px !important;
+    flex: 1 !important;
+    max-width: 150px !important;
+  }
+  
+  .nav-button span {
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 1.1;
+  }
+  
+  .nav-button mat-icon {
+    font-size: 1rem !important;
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .user-section {
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .username {
+    font-size: 0.85rem;
+  }
+
+  .user-icon {
+    font-size: 1.3rem !important;
+    width: 1.3rem !important;
+    height: 1.3rem !important;
+  }
+
+  /* Estilos responsivos para el menú de configuración */
+  .config-menu .menu-item {
+    padding: 10px 14px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .config-menu .menu-item mat-icon {
+    font-size: 1.1rem !important;
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+  }
+
+  /* Icono de configuración en tablet */
+  .config-icon-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    margin-left: 6px !important;
+  }
+
+  .config-icon-btn mat-icon {
+    font-size: 1rem !important;
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    gap: 8px;
+  }
+  
+  .main-nav {
+    gap: 8px;
+    justify-content: center;
+    flex: 1;
+    margin: 0 8px;
+  }
+  
+  .home-button {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+  }
+  
+  .home-button mat-icon {
+    font-size: 1.1rem !important;
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+    color: inherit !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+  
+  .nav-button span {
+    display: none;
+  }
+  
+  .nav-button {
+    width: 48px !important;
+    height: 40px !important;
+    flex: none !important;
+    padding: 8px !important;
+    min-width: 48px !important;
+  }
+
+  .user-section {
+    padding: 4px 8px;
+    gap: 6px;
+  }
+
+  .username {
+    display: none;
+  }
+
+  .user-icon {
+    font-size: 1.2rem !important;
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+  }
+
+  /* Estilos responsivos para el menú de configuración en móviles */
+  .config-menu .mat-mdc-menu-panel {
+    min-width: 180px !important;
+  }
+
+  .config-menu .menu-item {
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .config-menu .menu-item mat-icon {
+    font-size: 1rem !important;
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  /* Icono de configuración en móvil */
+  .config-icon-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    margin-left: 4px !important;
+  }
+
+  .config-icon-btn mat-icon {
+    font-size: 0.9rem !important;
+    width: 0.9rem !important;
+    height: 0.9rem !important;
+  }
+}
+
+/* Animación de entrada */
+.main-header {
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Efecto de glass morphism para el encabezado - solo en modo oscuro */
+.dark-theme .main-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--glass-overlay) 0%, rgba(255,255,255,0.02) 100%);
+  pointer-events: none;
+}
+
+/* Estilos de respaldo para asegurar que el tema se aplique inmediatamente */
+.main-header {
+  background-color: #ffffff !important;
+  border-bottom: 3px solid #e0e0e0 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Cuando el body tiene la clase dark-theme, aplicar inmediatamente */
+body.dark-theme .main-header {
+  background-color: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Cuando el app-root tiene la clase dark-theme, aplicar inmediatamente */
+app-root.dark-theme .main-header {
+  background-color: #000000 !important;
+  border-bottom: 3px solid #333333 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+}
